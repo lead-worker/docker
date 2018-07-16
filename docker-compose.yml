@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    image: leadworker/laravel:lates
+    container_name: base_ctr
+    ports:
+      - "8080:80"
+    volumes:
+      -  ".:/srv/app"
+    working_dir: "/srv/app"
+  mysql:
+      image: mysql:5.7
+      ports:
+        - "13306:3306"
+      environment:
+        MYSQL_DATABASE: base_db
+        MYSQL_USER: app
+        MYSQL_PASSWORD: secret
+        MYSQL_ROOT_PASSWORD: password
