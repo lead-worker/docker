@@ -4,7 +4,6 @@ services:
     build:
       context: .
     image: leadworker/laravel:front_lates
-    container_name: base_ctr
     ports:
       - "8080:80"
     volumes:
