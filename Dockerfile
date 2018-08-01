@@ -11,7 +11,7 @@ RUN apt-get update \
     && docker-php-ext-install zip mbstring pdo pdo_mysql
 
 ## Install tools
-RUN apt-get -y install less nano
+RUN apt-get -y install less nano git
 
 # Set permissions
 RUN chown -R www-data:www-data /srv/app \
