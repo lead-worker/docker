@@ -8,4 +8,7 @@ RUN apt install -y curl software-properties-common gnupg \
     && apt-get install -y nodejs
 
 ## Node tools
-RUN npm i -g gulp bower
+RUN npm i -g gulp
+
+## Install SASS
+RUN apt-get install -y sass
