@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-    image: leadworker/laravel:front_lates
+    image: leadworker/laravel:angular_lates
     ports:
       - "8080:80"
     volumes:
