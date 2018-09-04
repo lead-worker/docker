@@ -6,9 +6,18 @@ COPY . /srv/app
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 ## Install PHP extentions
-RUN apt-get update \
-    && apt-get install -y zlib1g-dev \
-    && docker-php-ext-install zip mbstring pdo pdo_mysql
+RUN apt-get update
+RUN apt-get install -y zlib1g-dev
+RUN docker-php-ext-install zip mbstring pdo pdo_mysql
+
+## Install GD
+RUN apt-get install -y libpng-dev
+RUN docker-php-ext-install gd
+
+## Install Imagick
+RUN apt-get install -y libmagickwand-dev
+RUN pecl install imagick
+RUN docker-php-ext-enable imagick
 
 ## Install tools
 RUN apt-get -y install less nano git
