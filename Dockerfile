@@ -20,7 +20,7 @@ RUN pecl install imagick
 RUN docker-php-ext-enable imagick
 
 ## Install tools
-RUN apt-get -y install less nano git
+RUN apt-get -y install less nano git zip
 
 # Set permissions
 RUN chown -R www-data:www-data /srv/app \
