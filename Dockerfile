@@ -15,6 +15,9 @@ RUN apt-get install -y supervisor
 RUN service supervisor start
 RUN supervisorctl reread
 
+## Install cron
+RUN apt-get install -y cron
+
 ## Install GD
 RUN apt-get install -y libpng-dev
 RUN docker-php-ext-install gd
