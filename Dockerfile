@@ -1,4 +1,4 @@
-FROM leadworker/v1.2_laravel:latest
+FROM leadworker/laravel:v1.2_laravel
 
 MAINTAINER Yevhen Saienko
 
