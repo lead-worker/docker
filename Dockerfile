@@ -16,6 +16,7 @@ RUN service supervisor start
 
 ## Install cron
 RUN apt-get install -y cron
+RUN service cron start
 
 ## Install GD
 RUN apt-get install -y libpng-dev
