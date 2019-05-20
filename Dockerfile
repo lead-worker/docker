@@ -19,8 +19,17 @@ RUN apt-get install -y cron
 RUN service cron start
 
 ## Install GD
-RUN apt-get install -y libpng-dev
-RUN docker-php-ext-install gd
+RUN apt-get install -y --no-install-recommends \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libxpm-dev \
+    libvpx-dev \
+&& docker-php-ext-configure gd \
+    --with-freetype-dir=/usr/lib/x86_64-linux-gnu/ \
+    --with-jpeg-dir=/usr/lib/x86_64-linux-gnu/ \
+    --with-xpm-dir=/usr/lib/x86_64-linux-gnu/ \
+    --with-vpx-dir=/usr/lib/x86_64-linux-gnu/ \
+&& docker-php-ext-install gd
 
 ## Install Imagick
 RUN apt-get install -y libmagickwand-dev
